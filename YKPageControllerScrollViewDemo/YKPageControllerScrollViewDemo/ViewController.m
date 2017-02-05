@@ -49,10 +49,6 @@
         [weakSelf.pageControllerScrollView setSelectedIndex:index animated:YES];
     }];
     
-    [self.pageControllerScrollView setOnControllerScrolled:^(NSInteger index) {
-        [weakSelf.scrollSegmentTitleView setSelectedIndex:index animated:YES];
-    }];
-    
     [self.pageControllerScrollView reloadData];
 }
 
@@ -115,6 +111,14 @@
         [colorVC setColor:color title:@(index).stringValue];
     }else{
         [colorVC setColor:nil title:@(index).stringValue];
+    }
+}
+
+- (void)pageControllerScrollViewDidScroll:(YKPageControllerScrollView *)pageControllerScrollView
+{
+    if (pageControllerScrollView.isDragging || pageControllerScrollView.isDecelerating ) {
+        NSInteger index = (NSInteger)(pageControllerScrollView.contentOffset.x / pageControllerScrollView.frame.size.width);
+        [self.scrollSegmentTitleView setSelectedIndex:index animated:YES];
     }
 }
 @end

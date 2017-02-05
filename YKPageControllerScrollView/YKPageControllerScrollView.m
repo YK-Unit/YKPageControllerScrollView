@@ -179,13 +179,9 @@
             [self performSelector:@selector(scrollViewDidEndScrollingAnimation:) withObject:scrollView afterDelay:1.0];
         }
     }
-    
-    //如果是用户拖动scrollView，则通知上层index改变了
-    if (scrollView.isDragging || scrollView.isDecelerating) {
-        NSInteger index = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
-        if (self.onControllerScrolled) {
-            self.onControllerScrolled(index);
-        }
+        
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pageControllerScrollViewDidScroll:)]) {
+        [self.delegate pageControllerScrollViewDidScroll:self];
     }
 }
 
@@ -292,6 +288,26 @@
 {
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *vc = [self.dict4ActiveController objectForKey:@(self.currentIndex)];
     return vc;
+}
+
+- (CGPoint)contentOffset
+{
+    return self.collectionView.contentOffset;
+}
+
+- (CGSize)contentSize
+{
+    return self.collectionView.contentSize;
+}
+
+- (BOOL)isTracking
+{
+    return [self.collectionView isTracking];
+}
+
+- (BOOL)isDragging
+{
+    return [self.collectionView isDragging];
 }
 
 #pragma mark - Private Methods

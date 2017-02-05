@@ -14,11 +14,12 @@
 @interface YKPageControllerScrollView : UIView
 
 @property (nonatomic,weak,nullable) id<YKPageControllerScrollViewDelegate> delegate;
-@property (nonatomic,readonly) NSInteger currentIndex;
+@property(nonatomic,readonly) CGPoint contentOffset;
+@property(nonatomic,readonly) CGSize contentSize;
+@property(nonatomic,readonly,getter=isTracking) BOOL tracking; ///<returns YES if user has touched. may not yet have started dragging
+@property(nonatomic,readonly,getter=isDragging) BOOL dragging; ///< returns YES if user has started scrolling. this may require some time and or distance to move to initiate dragging
+@property(nonatomic,readonly,getter=isDecelerating) BOOL decelerating;   ///< returns YES if user isn't dragging (touch up) but scroll view is still moving
 @property (nonatomic,readonly,nullable) UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentController;
-
-
-@property (nonatomic,copy,nullable) void(^onControllerScrolled)(NSInteger index); ///< 监听当前滑动到第几个VC Page
 
 - (nullable instancetype)initWithFrame:(CGRect)frame containerViewController:(nonnull UIViewController *)containerViewController;
 
@@ -46,5 +47,8 @@
 - (void)pageControllerScrollView:(nonnull YKPageControllerScrollView *)pageControllerScrollView didDisplayController:(nonnull UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)controller forItemAtIndex:(NSInteger)index;
 
 - (void)pageControllerScrollView:(nonnull YKPageControllerScrollView *)pageControllerScrollView didEndDisplayingController:(nonnull UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)controller forItemAtIndex:(NSInteger)index;
+
+- (void)pageControllerScrollViewDidScroll:(nonnull YKPageControllerScrollView *)pageControllerScrollView;
+
 
 @end

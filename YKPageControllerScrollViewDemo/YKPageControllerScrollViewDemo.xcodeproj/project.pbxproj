@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					983F72791E434C00009B83F2 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 27N2F4U88Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -311,7 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 27N2F4U88Y;
 				INFOPLIST_FILE = YKPageControllerScrollViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YK-Unit.YKPageControllerScrollViewDemo";
@@ -323,7 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 27N2F4U88Y;
 				INFOPLIST_FILE = YKPageControllerScrollViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YK-Unit.YKPageControllerScrollViewDemo";

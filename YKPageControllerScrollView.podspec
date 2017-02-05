@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
                     A scrollView for controller, and provides a reusability mechanism like tableview.
                    DESC
 
-  s.homepage     = "https://github.com/YK-Unit"
+  s.homepage     = "https://github.com/YK-Unit/YKPageControllerScrollView"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 

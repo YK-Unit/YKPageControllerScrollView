@@ -117,7 +117,8 @@
 - (void)pageControllerScrollViewDidScroll:(YKPageControllerScrollView *)pageControllerScrollView
 {
     if ([pageControllerScrollView isDragging] || [pageControllerScrollView isDecelerating] ) {
-        NSInteger index = (NSInteger)(pageControllerScrollView.contentOffset.x / pageControllerScrollView.frame.size.width);
+        CGFloat progress = pageControllerScrollView.contentOffset.x / pageControllerScrollView.frame.size.width;
+        NSInteger index = (NSInteger)(round(progress));
         [self.scrollSegmentTitleView setSelectedIndex:index animated:YES];
     }
 }

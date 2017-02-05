@@ -310,6 +310,11 @@
     return [self.collectionView isDragging];
 }
 
+- (BOOL)isDecelerating
+{
+    return [self.collectionView isDecelerating];
+}
+
 #pragma mark - Private Methods
 
 - (void)recycleViewController

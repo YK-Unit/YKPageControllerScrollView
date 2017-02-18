@@ -1,5 +1,5 @@
 # YKPageControllerScrollView
-YKPageControllerScrollView是一个提供滑动切换UIViewController的滚动视图，支持UIViewControlle重用。
+YKPageControllerScrollView是一个UIViewController容器类滚动视图，支持UIViewControlle重用机制。
 
 
 #Insatll

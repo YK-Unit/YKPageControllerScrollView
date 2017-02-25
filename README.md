@@ -45,3 +45,9 @@ pod 'YKPageControllerScrollView'
 }
 
 ```
+
+---
+
+# 设计思路
+
+关于 `YKPageControllerScrollView` 的设计思路，可以看我写的blog[《YKPageControllerScrollView设计总结》](http://www.jianshu.com/p/613c026c7744)

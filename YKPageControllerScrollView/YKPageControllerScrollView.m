@@ -167,7 +167,7 @@
     if (!self.isScrollWithAnim && !scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating) {
         self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
         
-        UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentViewController];
+        UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
         //如果当前VC还没生成，则推迟发送通知
         if (currentVC) {
             [self sendDidDisplayNotificationToViewController:currentVC];
@@ -189,7 +189,7 @@
 {
     self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
     
-    UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentViewController];
+    UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
     [self sendDidDisplayNotificationToViewController:currentVC];
     
     //停止滚动后，回收可回收的VC
@@ -203,7 +203,7 @@
     if (!decelerate) {
         self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
         
-        UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentViewController];
+        UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
         [self sendDidDisplayNotificationToViewController:currentVC];
         
         //停止滚动后，回收可回收的VC
@@ -214,7 +214,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
     
-    UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentViewController];
+    UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
     [self sendDidDisplayNotificationToViewController:currentVC];
     
     //停止滚动后，回收可回收的VC
@@ -284,7 +284,7 @@
     }
 }
 
-- (UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)currentViewController
+- (UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)currentController
 {
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *vc = [self.dict4ActiveController objectForKey:@(self.currentIndex)];
     return vc;

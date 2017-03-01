@@ -25,7 +25,7 @@
 
 - (void)registerClassForController:(nonnull Class)controllerClass; ///< 注册要使用的类
 
-- (nullable UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)dequeueReusableViewControllerWithReuseClass:(nonnull Class)reuseClass forIndex:(NSInteger)index; ///< 获取一个可再次使用的类，若为nil，需要手动生成
+- (nullable UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)dequeueReusableControllerWithReuseClass:(nonnull Class)reuseClass forIndex:(NSInteger)index; ///< 获取一个可再次使用的类，若为nil，需要手动生成
 
 - (void)reloadData; ///< 重新加载所有VC Pages
 

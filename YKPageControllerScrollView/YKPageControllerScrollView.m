@@ -170,7 +170,7 @@
         UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
         //如果当前VC还没生成，则推迟发送通知
         if (currentVC) {
-            [self sendDidDisplayNotificationToViewController:currentVC];
+            [self sendDidDisplayNotificationToController:currentVC];
             
             //停止滚动后，回收可回收的VC
             [self recycleViewController];
@@ -190,7 +190,7 @@
     self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
     
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
-    [self sendDidDisplayNotificationToViewController:currentVC];
+    [self sendDidDisplayNotificationToController:currentVC];
     
     //停止滚动后，回收可回收的VC
     [self recycleViewController];
@@ -204,7 +204,7 @@
         self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
         
         UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
-        [self sendDidDisplayNotificationToViewController:currentVC];
+        [self sendDidDisplayNotificationToController:currentVC];
         
         //停止滚动后，回收可回收的VC
         [self recycleViewController];
@@ -215,7 +215,7 @@
     self.currentIndex = (NSInteger)(scrollView.contentOffset.x / self.frame.size.width);
     
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = [self currentController];
-    [self sendDidDisplayNotificationToViewController:currentVC];
+    [self sendDidDisplayNotificationToController:currentVC];
     
     //停止滚动后，回收可回收的VC
     [self recycleViewController];
@@ -232,7 +232,7 @@
     }
 }
 
-- (nullable UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)dequeueReusableViewControllerWithReuseClass:(nonnull Class)reuseClass forIndex:(NSInteger)index
+- (nullable UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)dequeueReusableControllerWithReuseClass:(nonnull Class)reuseClass forIndex:(NSInteger)index
 {
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *reusableVC = nil;
     
@@ -346,7 +346,7 @@
     }
 }
 
-- (void)sendDidDisplayNotificationToViewController:(UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)viewController
+- (void)sendDidDisplayNotificationToController:(UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *)viewController
 {
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *currentVC = viewController;
     if (currentVC && self.delegate && [self.delegate respondsToSelector:@selector(pageControllerScrollView:didDisplayController:forItemAtIndex:)]) {

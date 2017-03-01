@@ -70,7 +70,7 @@
     UIViewController<YKPageControllerScrollViewLifeCycleProtocol> *vc = nil;
     
     if (0 == index) {
-        vc = [pageControllerScrollView dequeueReusableViewControllerWithReuseClass:[OrangeColorViewController class] forIndex:index];
+        vc = [pageControllerScrollView dequeueReusableControllerWithReuseClass:[OrangeColorViewController class] forIndex:index];
         
         OrangeColorViewController *colorVC = (OrangeColorViewController *)vc;
         if (colorVC == nil) {
@@ -79,7 +79,7 @@
         
         vc = colorVC;
     }else if(1 == index){
-        vc = [pageControllerScrollView dequeueReusableViewControllerWithReuseClass:[GreenColorViewController class] forIndex:index];
+        vc = [pageControllerScrollView dequeueReusableControllerWithReuseClass:[GreenColorViewController class] forIndex:index];
         
         GreenColorViewController *colorVC = (GreenColorViewController *)vc;
         if (colorVC == nil) {
@@ -88,7 +88,7 @@
         
         vc = colorVC;
     }else{
-        vc = [pageControllerScrollView dequeueReusableViewControllerWithReuseClass:[ColorViewController class] forIndex:index];
+        vc = [pageControllerScrollView dequeueReusableControllerWithReuseClass:[ColorViewController class] forIndex:index];
         
         ColorViewController *colorVC = (ColorViewController *)vc;
         if (colorVC == nil) {
